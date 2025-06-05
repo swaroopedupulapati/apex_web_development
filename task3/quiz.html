@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧠 JS Quiz Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Rubik', sans-serif;
+      background: linear-gradient(145deg, #fddb92, #d1fdff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .quiz-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 450px;
+      width: 90%;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    .question {
+      margin: 1rem 0;
+    }
+    select, button {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #222;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+    button:hover {
+      background-color: #444;
+    }
+    .result {
+      margin-top: 1rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-box">
+    <h2>🧠 JavaScript Quiz</h2>
+
+    <div class="question">
+      <label>1️⃣ What is the result of <code>2 + '2'</code> in JavaScript?</label>
+      <select id="q1">
+        <option value="">--Select--</option>
+        <option value="22">"22"</option>
+        <option value="4">4</option>
+        <option value="Error">Error</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <label>2️⃣ Which keyword is used to declare a variable in JavaScript?</label>
+      <select id="q2">
+        <option value="">--Select--</option>
+        <option value="int">int</option>
+        <option value="var">var</option>
+        <option value="define">define</option>
+      </select>
+    </div>
+
+    <button onclick="checkAnswers()">Check Score</button>
+    <div class="result" id="quizResult"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const q1 = document.getElementById("q1").value;
+      const q2 = document.getElementById("q2").value;
+      let score = 0;
+
+      if (q1 === "22") score++;
+      if (q2 === "var") score++;
+
+      document.getElementById("quizResult").innerText = `🎉 You scored ${score}/2!`;
+    }
+  </script>
+</body>
+</html>
